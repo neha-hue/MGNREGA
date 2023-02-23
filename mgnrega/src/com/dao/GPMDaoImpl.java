@@ -73,11 +73,7 @@ public class GPMDaoImpl implements GPMDao {
 		return null;
 	}
 
-	@Override
-	public List<Employee> viewTotalDaysandWages(int empid) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 	
 	public boolean loginGPM(String email,String password) {
@@ -115,7 +111,7 @@ public class GPMDaoImpl implements GPMDao {
 		// TODO Auto-generated method stub
 		return mes;
 	}
-}
+
 //	
 //	public String addEmployee(Employee emp) {
 //		String message="Employee insertion failed";
@@ -234,70 +230,70 @@ public class GPMDaoImpl implements GPMDao {
 //		return msg;
 //	}
 //	
-//	public List<Employee> viewTotalDaysandWages(int empid) {
-//		Connection connection = null;
-////		Employee emp=null;
-////		 List<EmpProject> list=null;
-//		List<Employee>list=new ArrayList<>();
-//		
-//		try {
-//			//connect to database
-//			connection = DBUtils.connectToDatabase();
-//			//prepare the query
-//			
-//			String SELECT_QUERY = "select e.days,e.days*e.wages TotalWages from employee e inner join project p on p.projid=e.pid where p.projid=?";
-//				
-//			
-//			//get the prepared statement object
-//			PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
-//			ps.setInt(1, empid);
-//            ResultSet resultSet=ps.executeQuery();
-//            
-//			
-//			//check if result set is empty
-////			if(isResultSetEmpty(resultSet)) {
-////				throw new SQLException();
-////			}
-//			while(resultSet.next()) {
-//				
-//				
-//
-////				emp.setEmpid(resultSet.getInt("empid"));
-////				emp.setEname(resultSet.getString("ename"));
-////				emp.setAge(rs.getInt("age"));
-////				emp.setLocation(rs.getString("location"));
-//				int wageess=resultSet.getInt("TotalWages");
-////				emp.setMobilno(rs.getString("mobilno"));
-//				int days=resultSet.getInt("days");
-////				emp.setProjid(resultSet.getInt("projid"));
-////				emp.setName(resultSet.getString("name"));
-//				Employee  emp=new EmployeeImpl(wageess,days);
-//				
-//				list.add(emp);
+	public List<Employee> viewTotalDaysandWages(int empid) {
+		Connection connection = null;
+//		Employee emp=null;
+//		 List<EmpProject> list=null;
+		List<Employee>list=new ArrayList<>();
+		
+		try {
+			//connect to database
+			connection = DBUtils.connectToDatabase();
+			//prepare the query
+			
+			String SELECT_QUERY = "select e.days,e.days*e.wages TotalWages from employee e inner join project p on p.projid=e.pid where p.projid=?";
+				
+			
+			//get the prepared statement object
+			PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
+			ps.setInt(1, empid);
+            ResultSet resultSet=ps.executeQuery();
+            
+			
+			//check if result set is empty
+//			if(isResultSetEmpty(resultSet)) {
+//				throw new SQLException();
 //			}
-//
-//			
-//            
-////           list=getEmpProjectListFromResultSet(resultSet);
-//			
-//		
-//			
-//			
-//			
-//			
-//		}catch(SQLException sqlEx) {
-//			//code to log the error in the file
-//			sqlEx.printStackTrace();
-//		}finally {
-//			try {
-//				//close the exception
-//				DBUtils.closeConnection(connection);			
-//			}catch(SQLException sqlEX) {
-//				sqlEX.printStackTrace();
-//			}
-//		}
-//		// TODO Auto-generated method stub
-//		return list;
-//	}
+			while(resultSet.next()) {
+				
+				
 
+//				emp.setEmpid(resultSet.getInt("empid"));
+//				emp.setEname(resultSet.getString("ename"));
+//				emp.setAge(rs.getInt("age"));
+//				emp.setLocation(rs.getString("location"));
+				int wageess=resultSet.getInt("TotalWages");
+//				emp.setMobilno(rs.getString("mobilno"));
+				int days=resultSet.getInt("days");
+//				emp.setProjid(resultSet.getInt("projid"));
+//				emp.setName(resultSet.getString("name"));
+				Employee  emp=new EmployeeImpl(wageess,days);
+				
+				list.add(emp);
+			}
+
+			
+            
+//           list=getEmpProjectListFromResultSet(resultSet);
+			
+		
+			
+			
+			
+			
+		}catch(SQLException sqlEx) {
+			//code to log the error in the file
+			sqlEx.printStackTrace();
+		}finally {
+			try {
+				//close the exception
+				DBUtils.closeConnection(connection);			
+			}catch(SQLException sqlEX) {
+				sqlEX.printStackTrace();
+			}
+		}
+		// TODO Auto-generated method stub
+		return list;
+	}
+}
 

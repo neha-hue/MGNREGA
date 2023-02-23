@@ -17,7 +17,8 @@ public EmployeeImpl(int wages,int days) {
 	this.days=days;
 }
 public EmployeeImpl(int empid, String ename, int age, String location, int wages, String mobilno, int days) {
-	super();
+	//super();
+	this(wages,days);
 	this.empid = empid;
 	this.ename = ename;
 	this.age = age;
@@ -75,11 +76,14 @@ public void setDays(int days) {
 //public void setPid(int pid) {
 //	this.pid = pid;
 //}
+
 @Override
 public String toString() {
+	if(empid==0 || ename==null || age==0 || location==null || mobilno==null) {
+		return "wages="+wages+" "+"days="+days;
+	}
 	return "EmployeeImpl [empid=" + empid + ", ename=" + ename + ", age=" + age + ", location=" + location + ", wages="
 			+ wages + ", mobilno=" + mobilno + ", days=" + days + "]";
-	
 }
 
 
