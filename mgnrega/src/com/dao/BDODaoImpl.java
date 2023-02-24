@@ -228,163 +228,145 @@ public String addGPM(GPM gpm) {
 		return message;
 }
 
-@Override
-public List<GPM> getAllGPM() {
+
+public List<GPM> getAllGPM()  {
+	
+	Connection connection = null;
+
+	List<GPM> list = null;
+	try {
+		//connect to database
+		connection = DBUtils.connectToDatabase();
+		//prepare the query
+		String SELECT_QUERY = "SELECT * FROM gpm ";
+		
+		//get the prepared statement object
+		PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
+		
+		//execute query
+		ResultSet resultSet = ps.executeQuery();
+		
+		//check if result set is empty
+		if(isResultSetEmpty(resultSet)) {
+			throw new SQLException();
+		}
+		
+		list = getGPMListFromResultSet(resultSet);
+	}catch(SQLException sqlEx) {
+		//code to log the error in the file
+		sqlEx.printStackTrace();
+	}finally {
+		try {
+			//close the exception
+			DBUtils.closeConnection(connection);			
+		}catch(SQLException sqlEX) {
+			sqlEX.printStackTrace();
+		}
+	}
 	// TODO Auto-generated method stub
-	return null;
+	return list;
 }
 
-@Override
-public String assignProjToGpm(int projid, int gpmid) {
+public String assignProjToGpm(int projid,int gpmid) {
+	
+	Connection connection = null;
+	String msg="not assigned any project";
+	
+	try {
+		//connect to database
+		connection = DBUtils.connectToDatabase();
+		//prepare the query
+		
+		String SELECT_QUERY = "update gpm set prid=? where gpmid=?";
+		
+		//get the prepared statement object
+		PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
+		ps.setInt(1, projid);
+		ps.setInt(2, gpmid);
+		
+		if(ps.executeUpdate()>0) {
+			msg="project assign sucessfully";
+		}
+	}catch(SQLException sqlEx) {
+		//code to log the error in the file
+		sqlEx.printStackTrace();
+	}finally {
+		try {
+			//close the exception
+			DBUtils.closeConnection(connection);			
+		}catch(SQLException sqlEX) {
+			sqlEX.printStackTrace();
+		}
+	}
 	// TODO Auto-generated method stub
-	return null;
+	return msg;
 }
 
-@Override
+//select mp.projName, me.empName,me.empAddress,me.empMobile,me.empWages  from mgnregaEmp me inner join mgnregaProject mp inner join mgnregaEmpProject mep on mep.projId = mp.projId and mep.empId = me.empId where mp.projName = ?"
 public List<Employee> getAllEmployee(String pname) {
-	// TODO Auto-generated method stub
-	return null;
-}
-
-//
-//public List<GPM> getAllGPM()  {
-//	
-//	Connection connection = null;
-//
-//	List<GPM> list = null;
-//	try {
-//		//connect to database
-//		connection = DBUtils.connectToDatabase();
-//		//prepare the query
-//		String SELECT_QUERY = "SELECT * FROM gpm ";
-//		
-//		//get the prepared statement object
-//		PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
-//		
-//		//execute query
-//		ResultSet resultSet = ps.executeQuery();
-//		
-//		//check if result set is empty
+	Connection connection = null;
+//	Employee emp=null;
+//	 List<EmpProject> list=null;
+	List<Employee>list=new ArrayList<>();
+	
+	try {
+		//connect to database
+		connection = DBUtils.connectToDatabase();
+		//prepare the query
+		
+		String SELECT_QUERY = "select e.empid ,e.ename,e.days,e.wages,p.name from employee e inner join project p on e.pid=p.projid where p.name=?";
+			
+		
+		//get the prepared statement object
+		PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
+		ps.setString(1, pname);
+        ResultSet resultSet=ps.executeQuery();
+        
+		
+		//check if result set is empty
 //		if(isResultSetEmpty(resultSet)) {
 //			throw new SQLException();
 //		}
-//		
-//		list = getGPMListFromResultSet(resultSet);
-//	}catch(SQLException sqlEx) {
-//		//code to log the error in the file
-//		sqlEx.printStackTrace();
-//	}finally {
-//		try {
-//			//close the exception
-//			DBUtils.closeConnection(connection);			
-//		}catch(SQLException sqlEX) {
-//			sqlEX.printStackTrace();
-//		}
-//	}
-//	// TODO Auto-generated method stub
-//	return list;
-//}
-//
-//public String assignProjToGpm(int projid,int gpmid) {
-//	
-//	Connection connection = null;
-//	String msg="not assigned any project";
-//	
-//	try {
-//		//connect to database
-//		connection = DBUtils.connectToDatabase();
-//		//prepare the query
-//		
-//		String SELECT_QUERY = "update gpm set prid=? where gpmid=?";
-//		
-//		//get the prepared statement object
-//		PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
-//		ps.setInt(1, projid);
-//		ps.setInt(2, gpmid);
-//		
-//		if(ps.executeUpdate()>0) {
-//			msg="project assign sucessfully";
-//		}
-//	}catch(SQLException sqlEx) {
-//		//code to log the error in the file
-//		sqlEx.printStackTrace();
-//	}finally {
-//		try {
-//			//close the exception
-//			DBUtils.closeConnection(connection);			
-//		}catch(SQLException sqlEX) {
-//			sqlEX.printStackTrace();
-//		}
-//	}
-//	// TODO Auto-generated method stub
-//	return msg;
-//}
-//
-////select mp.projName, me.empName,me.empAddress,me.empMobile,me.empWages  from mgnregaEmp me inner join mgnregaProject mp inner join mgnregaEmpProject mep on mep.projId = mp.projId and mep.empId = me.empId where mp.projName = ?"
-//public List<Employee> getAllEmployee(String pname) {
-//	Connection connection = null;
-////	Employee emp=null;
-////	 List<EmpProject> list=null;
-//	List<Employee>list=new ArrayList<>();
-//	
-//	try {
-//		//connect to database
-//		connection = DBUtils.connectToDatabase();
-//		//prepare the query
-//		
-//		String SELECT_QUERY = "select e.empid ,e.ename,e.days,e.wages,p.name from employee e inner join project p on e.pid=p.projid where p.name=?";
-//			
-//		
-//		//get the prepared statement object
-//		PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
-//		ps.setString(1, pname);
-//        ResultSet resultSet=ps.executeQuery();
-//        
-//		
-//		//check if result set is empty
-////		if(isResultSetEmpty(resultSet)) {
-////			throw new SQLException();
-////		}
-//		while(resultSet.next()) {
-//			Employee  emp=new EmployeeImpl();
-//			
-//
-//			emp.setEmpid(resultSet.getInt("empid"));
-//			emp.setEname(resultSet.getString("ename"));
-////			emp.setAge(rs.getInt("age"));
-////			emp.setLocation(rs.getString("location"));
-//			emp.setDays(resultSet.getInt("days"));
-//			emp.setWages(resultSet.getInt("wages"));
-////			emp.setMobilno(rs.getString("mobilno"));
-//			
-//			
-//			
-//			
-//			list.add(emp);
-//		}
-//
-//		
-//        
-////       list=getEmpProjectListFromResultSet(resultSet);
-//		
-//	
-//		
-//		
-//		
-//		
-//	}catch(SQLException sqlEx) {
-//		//code to log the error in the file
-//		sqlEx.printStackTrace();
-//	}finally {
-//		try {
-//			//close the exception
-//			DBUtils.closeConnection(connection);			
-//		}catch(SQLException sqlEX) {
-//			sqlEX.printStackTrace();
-//		}
-//	}
-//	// TODO Auto-generated method stub
-//	return list;
-//}
+		while(resultSet.next()) {
+			Employee  emp=new EmployeeImpl();
+			
+
+			emp.setEmpid(resultSet.getInt("empid"));
+			emp.setEname(resultSet.getString("ename"));
+//			emp.setAge(rs.getInt("age"));
+//			emp.setLocation(rs.getString("location"));
+			emp.setDays(resultSet.getInt("days"));
+			emp.setWages(resultSet.getInt("wages"));
+//			emp.setMobilno(rs.getString("mobilno"));
+			
+			
+			
+			
+			list.add(emp);
+		}
+
+		
+        
+//       list=getEmpProjectListFromResultSet(resultSet);
+		
+	
+		
+		
+		
+		
+	}catch(SQLException sqlEx) {
+		//code to log the error in the file
+		sqlEx.printStackTrace();
+	}finally {
+		try {
+			//close the exception
+			DBUtils.closeConnection(connection);			
+		}catch(SQLException sqlEX) {
+			sqlEX.printStackTrace();
+		}
+	}
+	// TODO Auto-generated method stub
+	return list;
+}
 
 }
