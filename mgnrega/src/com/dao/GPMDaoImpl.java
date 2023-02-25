@@ -219,7 +219,7 @@ public class GPMDaoImpl implements GPMDao {
 			//prepare the query
 			
 			String SELECT_QUERY = "select e.days,e.days*e.wages TotalWages from employee e inner join project p on p.projid=e.pid where p.projid=?";
-				
+				//String str1="select e.days,e.days*e.wages totalwages from employee e inner join eproj ep on e.empid=ep.emp_id inner join project p on p.projid=ep.p_id where p.projid=?";
 			
 			//get the prepared statement object
 			PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
