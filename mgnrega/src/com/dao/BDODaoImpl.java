@@ -315,7 +315,7 @@ public List<Employee> getAllEmployee(String pname) {
 		//prepare the query
 		
 		String SELECT_QUERY = "select e.empid ,e.ename,e.days,e.wages,p.name from employee e inner join project p on e.pid=p.projid where p.name=?";
-			
+			//String str1="select e.empid,e.ename, e.days,e.wages,p.name from employee e inner join eproj ep on e.empid=ep.emp_id inner join project p on p.projid=ep.p_id where p.name=?";
 		
 		//get the prepared statement object
 		PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
