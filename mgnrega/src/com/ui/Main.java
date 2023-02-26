@@ -229,11 +229,14 @@ public static void home() {
 					String date=sc.next();
 					System.out.println(ConsoleColors.BLUE_BOLD+"enter duration"+ConsoleColors.RESET);
 					int duration=sc.nextInt();
-					bd.addProject(new ProjectImpl(id,name,desc,LocalDate.parse(date),duration));
+					System.out.println(bd.addProject(new ProjectImpl(id,name,desc,LocalDate.parse(date),duration)));
+					
 				}
 				else if(choice==2) {
+					System.out.println(ConsoleColors.BLUE_BOLD);
 					List<Project> list=bd.getAllProject();
 					list.forEach(System.out::println);
+					System.out.println(ConsoleColors.RESET);
 					
 				}
 				else if(choice==3) {
@@ -251,25 +254,30 @@ public static void home() {
 					String mobilno=sc.next();
 					System.out.println("enter prid");
 					int prid=sc.nextInt();
-					bd.addGPM(new GPMImpl(id,name,email,password,location,mobilno,prid));
+					
+					System.out.println(bd.addGPM(new GPMImpl(id,name,email,password,location,mobilno,prid)));
 							
 				}
 				else if(choice==4) {
+					System.out.println(ConsoleColors.BLUE_BOLD);
 					List<GPM> list=bd.getAllGPM();
 					list.forEach(System.out::println);
+					System.out.println(ConsoleColors.RESET);
 				}
 				else if(choice==5) {
 					System.out.println(ConsoleColors.RED_BOLD+"enter projid"+ConsoleColors.RESET);
 					int projid=sc.nextInt();
 					System.out.println(ConsoleColors.RED_BOLD+"enter gpmid"+ConsoleColors.RESET);
 					int gpmid=sc.nextInt();
-					bd.assignProjToGpm(projid, gpmid);
+					
+					System.out.println(bd.assignProjToGpm(projid, gpmid));
 				}
 				else if(choice==6) {
-					System.out.println(ConsoleColors.RED_BOLD+"enter name"+ConsoleColors.RESET);
+					System.out.println(ConsoleColors.RED_BOLD+"enter pname");
 					String pname=sc.next();
 					List<Employee> list=bd.getAllEmployee(pname);
 					list.forEach(System.out::println);
+					System.out.println(ConsoleColors.RESET);
 				}
 		}while(choice!=0);
 		System.out.println(ConsoleColors.GREEN_ITALIC+"Thank you for visiting our services of BDO"+ConsoleColors.RESET);
@@ -282,6 +290,8 @@ public static void home() {
 		}
 		else {
 			System.out.println(ConsoleColors.GREEN_ITALIC+"invalid username and password"+ConsoleColors.RESET);
+			System.out.println("Try again");
+			home();
 		}
 		
 	}
@@ -320,32 +330,39 @@ public static void home() {
 				int days=sc.nextInt();
 				System.out.println(ConsoleColors.BLACK_BOLD+"enter pid"+ConsoleColors.RESET);
 				int pid=sc.nextInt();
-				gp.addEmployee(new EmployeeImpl(id,name,age,location,wages,mobilno,days,pid));
+				
+				System.out.println(gp.addEmployee(new EmployeeImpl(id,name,age,location,wages,mobilno,days,pid)));
 			}
 			else if(choice1==2) {
+				System.out.println(ConsoleColors.BLUE_BOLD);
 				List<Employee>list=gp.getAllEmployee();
 				list.forEach(System.out::println);
+				System.out.println(ConsoleColors.RESET);
 			}
 			else if(choice1==3) {
 				System.out.println(ConsoleColors.BLUE_ITALIC+"enter empid"+ConsoleColors.RESET);
 				int empid=sc.nextInt();
 				System.out.println(ConsoleColors.BLUE_ITALIC+"enter projid"+ConsoleColors.RESET);
 				int projid=sc.nextInt();
-				gp.assignEmpToProj(empid, projid);
+				
+				System.out.println(gp.assignEmpToProj(empid, projid));
 				
 			}
 			else if(choice1==4) {
-				System.out.println(ConsoleColors.RED_BOLD+"enter projid"+ConsoleColors.RESET);
+				System.out.println(ConsoleColors.RED_BOLD+"enter projid");
 				int id=sc.nextInt();
 				List<Employee>list=gp.viewTotalDaysandWages(id);
 				list.forEach(System.out::println);
+				System.out.println(ConsoleColors.RESET);
 				
 				
 			
 			}
 			else if(choice1==5) {
+				System.out.println(ConsoleColors.BLUE_ITALIC);
 				List<Eproj> list=gp.getAllEproj();
 				list.forEach(System.out::println);
+				System.out.println(ConsoleColors.RESET);
 
 
 			}
@@ -361,12 +378,14 @@ public static void home() {
 		}
 		else {
 			System.out.println(ConsoleColors.GREEN_ITALIC+"invalid email and password"+ConsoleColors.RESET);
+			System.out.println("Try again");
+			home();
 		}
 		
 	}
 	else if(c==3) {
-		System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "APPLICATION CLOSED : EXITED" + ConsoleColors.RESET);
-		System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "Thanks for Visiting" + ConsoleColors.RESET);
+		System.out.println(ConsoleColors.BROWN_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "------------------------------APPLICATION CLOSED : EXITED------------------------------------" + ConsoleColors.RESET+"\n");
+		System.out.println(ConsoleColors.BROWN_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "------------------------------Thanks for Visiting---------------------------------------------" + ConsoleColors.RESET);
 		System.exit(0);
 	}
 }

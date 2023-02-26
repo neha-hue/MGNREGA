@@ -113,7 +113,7 @@ public boolean loginBDO(String email,String password) {
 	return flag;
 }
 public String addProject(Project proj) {
-	String message="Employee insertion failed";
+	String message="Project insertion failed";
     Connection con=null;
 
 		try {
@@ -133,7 +133,7 @@ public String addProject(Project proj) {
 			
 			
 			if(ps.executeUpdate()>0) {
-				message="department inserted succesfully";
+				message="Project inserted succesfully";
 			}
 			
 		} catch (SQLException e) {
@@ -190,7 +190,7 @@ public List<Project> getAllProject()  {
 }
 
 public String addGPM(GPM gpm) {
-	String message="Employee insertion failed";
+	String message="GPM insertion failed";
     Connection con=null;
 
 
@@ -211,7 +211,7 @@ public String addGPM(GPM gpm) {
 			
 			
 			if(ps.executeUpdate()>0) {
-				message="department inserted succesfully";
+				message="GPM inserted succesfully";
 			}
 			
 		} catch (SQLException e) {
@@ -288,7 +288,7 @@ public String assignProjToGpm(int projid,int gpmid) {
 		ps.setInt(2, gpmid);
 		
 		if(ps.executeUpdate()>0) {
-			msg="project assign sucessfully";
+			msg="project assigned to gpm sucessfully";
 		}
 	}catch(SQLException sqlEx) {
 		//code to log the error in the file
