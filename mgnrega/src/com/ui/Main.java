@@ -18,167 +18,13 @@ import com.dto.Project;
 import com.dto.ProjectImpl;
 import com.style.ConsoleColors;
 
-//public String loginBDO(String email,String password);
-//public String addProject(Project proj);
-//public List<Project> getAllProject();
-//public String addGPM(GPM gpm);
-//public List<GPM> getAllGPM() ;
-//public String assignProjToGpm(int projid,int gpmid);
-//public List<Employee> getAllEmployee() ;
-//public String loginGPM(String email,String password);
-//public String addEmployee(Employee emp) ;
-//public List<Employee> getAllEmployee();
-//public String assignEmpToProj(int empid,int projid);
-//public Employee viewTotalDaysandWages();
+
 public class Main {
 	
 public static void main(String[] args) {
-//	System.out.println(ConsoleColors.BOXING+ConsoleColors.CYAN_BACKGROUND+ConsoleColors.WHITE_BOLD_BRIGHT+"Welcome to MGNREGA : "+ ConsoleColors.RESET);
-//	System.out.println();
-//	System.out.println(ConsoleColors.BLUE_BOLD_BRIGHT+"Choose Option from Below According to your Designation  : " + ConsoleColors.RESET);
-	
+
 	home();
 	
-	
-	
-	
-//	int choice=0;
-//	do {
-//		System.out.println("1. login bdo");
-//		System.out.println("2. add project");
-//		System.out.println("3. view all project");
-//		System.out.println("4. add gpm");
-//		System.out.println("5. view all gpm");
-//		System.out.println("6. assignProjToGpm");
-//		System.out.println("7. view all employee");
-//		
-//		
-//		System.out.println("8. loginGpm");
-//		System.out.println("9. addEmployee");
-//		System.out.println("10. getAllEmployee");
-//		System.out.println("11. assignEmpToProj");
-//		System.out.println("12. viewTotalDaysandWages");
-//		System.out.println("0. for Exit");
-//		System.out.print("Enter selection ");
-//		choice=sc.nextInt();
-//		if(choice==1) {
-//			System.out.println("enter email");
-//			String email=sc.next();
-//			System.out.println("enter password");
-//			String password=sc.next();
-//			System.out.println(bd.loginBDO(email, password));
-//			
-//			
-//		}
-//		else if(choice==2) {
-//			System.out.println("enter id");
-//			int id=sc.nextInt();
-//			System.out.println("ente name");
-//			String name=sc.next();
-//			System.out.println("enter project description");
-//			String desc=sc.next();
-////			System.out.println("enter nofodays");
-////			int noOfDays=sc.nextInt();
-//			System.out.println("enter date");
-//			String date=sc.next();
-//			System.out.println("enter duration");
-//			int duration=sc.nextInt();
-//			bd.addProject(new ProjectImpl(id,name,desc,LocalDate.parse(date),duration));
-//		}
-//		else if(choice==3) {
-//			List<Project> list=bd.getAllProject();
-//			list.forEach(System.out::println);
-//			
-//		}
-//		else if(choice==4) {
-//			System.out.println("enter id");
-//			int id=sc.nextInt();
-//			System.out.println("enter name");
-//			String name=sc.next();
-//			System.out.println("enter email");
-//			String email=sc.next();
-//			System.out.println("enter password");
-//			String password=sc.next();
-//			System.out.println("enter location");
-//			String location=sc.next();
-//			System.out.println("enter mobilno");
-//			String mobilno=sc.next();
-////			System.out.println("enter prid");
-////			int prid=sc.nextInt();
-//			bd.addGPM(new GPMImpl(id,name,email,password,location,mobilno));
-//					
-//		}
-//		else if(choice==5) {
-//			List<GPM> list=bd.getAllGPM();
-//			list.forEach(System.out::println);
-//		}
-//		else if(choice==6) {
-//			System.out.println("enter projid");
-//			int projid=sc.nextInt();
-//			System.out.println("enter gpmid");
-//			int gpmid=sc.nextInt();
-//			bd.assignProjToGpm(projid, gpmid);
-//		}
-//		else if(choice==7) {
-//			System.out.println("enter name");
-//			String pname=sc.next();
-//			List<Employee> list=bd.getAllEmployee(pname);
-//			list.forEach(System.out::println);
-//		}
-//		else if(choice==8) {
-//			System.out.println("enter email");
-//			String email=sc.next();
-//			System.out.println("enter password");
-//			String password=sc.next();
-//			System.out.println(gp.loginGPM(email, password));
-//			
-//			
-//		}
-//		else if(choice==9) {
-//			System.out.println("enter id");
-//			int id=sc.nextInt();
-//			System.out.println("enter name");
-//			String name=sc.next();
-//			System.out.println("enter age");
-//			int age=sc.nextInt();
-//			System.out.println("enter location");
-//			String location=sc.next();
-//			System.out.println("enter wages");
-//			int wages=sc.nextInt();
-//			System.out.println("enter mobilno");
-//			String mobilno=sc.next();
-//			System.out.println("enter days");
-//			int days=sc.nextInt();
-////			System.out.println("enter pid");
-////			int pid=sc.nextInt();
-//			gp.addEmployee(new EmployeeImpl(id,name,age,location,wages,mobilno,days));
-//		}
-//		else if(choice==10) {
-//			List<Employee>list=gp.getAllEmployee();
-//			list.forEach(System.out::println);
-//		}
-//		else if(choice==11) {
-//			System.out.println("enter empid");
-//			int empid=sc.nextInt();
-//			System.out.println("enter projid");
-//			int projid=sc.nextInt();
-//			gp.assignEmpToProj(empid, projid);
-//			
-//		}
-//		else if(choice==12) {
-//			System.out.println("enter projid");
-//			int id=sc.nextInt();
-//			List<Employee>list=gp.viewTotalDaysandWages(id);
-//			list.forEach(System.out::println);
-//			
-//			
-//		
-//		}
-//	}while(choice!=0);
-//	System.out.println("Thank you for visiting our services");
-//	sc.close();
-
-	 
 	 //----------------------------------------------function making----------------------------------------
 	
 }
@@ -279,6 +125,10 @@ public static void home() {
 					list.forEach(System.out::println);
 					System.out.println(ConsoleColors.RESET);
 				}
+				else {
+					System.out.println("wrong selection please try again");
+				}
+				
 		}while(choice!=0);
 		System.out.println(ConsoleColors.GREEN_ITALIC+"Thank you for visiting our services of BDO"+ConsoleColors.RESET);
 //		System.out.println(ConsoleColors.RED_BOLD +"Press 2 to" +ConsoleColors.GREEN_BOLD + " logIn as gpm." + ConsoleColors.RESET);
@@ -366,6 +216,9 @@ public static void home() {
 
 
 			}
+			else {
+				System.out.println("wrong selection please try again");
+			}
 			
 				
 			}while(choice1!=0);
@@ -386,7 +239,11 @@ public static void home() {
 	else if(c==3) {
 		System.out.println(ConsoleColors.BROWN_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "------------------------------APPLICATION CLOSED : EXITED------------------------------------" + ConsoleColors.RESET+"\n");
 		System.out.println(ConsoleColors.BROWN_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "------------------------------Thanks for Visiting---------------------------------------------" + ConsoleColors.RESET);
-		System.exit(0);
+		System.exit(1);
+	}
+	else {
+		System.out.println("please select from 1 to 3 only");
+		home();
 	}
 }
 }
