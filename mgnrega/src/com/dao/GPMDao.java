@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.dto.EmpProject;
 import com.dto.Employee;
+import com.dto.Eproj;
 
 
 public interface GPMDao {
@@ -13,5 +14,6 @@ public interface GPMDao {
 	public List<Employee> getAllEmployee();
 	public String assignEmpToProj(int empid,int projid);
 	public List<Employee> viewTotalDaysandWages(int empid);
+	public List<Eproj> getAllEproj();
 
 }

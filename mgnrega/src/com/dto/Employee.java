@@ -13,8 +13,8 @@ public interface Employee {
 	public void setWages(int wages) ;
 	public String getMobilno() ;
 	public void setMobilno(String mobilno);
-//	public int getPid();
-//	public void setPid(int pid);
+	public int getPid();
+	public void setPid(int pid);
 	public int getDays();
 	public void setDays(int days);
 }

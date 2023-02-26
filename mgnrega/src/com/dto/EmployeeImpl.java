@@ -8,7 +8,7 @@ private String location;
 private int wages;
 private String mobilno;
 private int days;
-//private int pid;
+private int pid;
 public EmployeeImpl() {
 	
 }
@@ -16,9 +16,8 @@ public EmployeeImpl(int wages,int days) {
 	this.wages=wages;
 	this.days=days;
 }
-public EmployeeImpl(int empid, String ename, int age, String location, int wages, String mobilno, int days) {
-	//super();
-	this(wages,days);
+public EmployeeImpl(int empid, String ename, int age, String location, int wages, String mobilno, int days,int pid) {
+	super();
 	this.empid = empid;
 	this.ename = ename;
 	this.age = age;
@@ -26,7 +25,7 @@ public EmployeeImpl(int empid, String ename, int age, String location, int wages
 	this.wages = wages;
 	this.mobilno = mobilno;
 	this.days = days;
-//	this.pid = pid;
+this.pid = pid;
 }
 public int getEmpid() {
 	return empid;
@@ -70,21 +69,18 @@ public int getDays() {
 public void setDays(int days) {
 	this.days = days;
 }
-//public int getPid() {
-//	return pid;
-//}
-//public void setPid(int pid) {
-//	this.pid = pid;
-//}
-
+public int getPid() {
+	return pid;
+}
+public void setPid(int pid) {
+	this.pid = pid;
+}
 @Override
 public String toString() {
-	if(empid==0 || ename==null || age==0 || location==null || mobilno==null) {
-		return "wages="+wages+" "+"days="+days;
-	}
 	return "EmployeeImpl [empid=" + empid + ", ename=" + ename + ", age=" + age + ", location=" + location + ", wages="
-			+ wages + ", mobilno=" + mobilno + ", days=" + days + "]";
+			+ wages + ", mobilno=" + mobilno + ", days=" + days + ", pid=" + pid + "]";
 }
+
 
 
 
