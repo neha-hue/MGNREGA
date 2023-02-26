@@ -239,7 +239,7 @@ public static void home() {
 	else if(c==3) {
 		System.out.println(ConsoleColors.BROWN_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "------------------------------APPLICATION CLOSED : EXITED------------------------------------" + ConsoleColors.RESET+"\n");
 		System.out.println(ConsoleColors.BROWN_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "------------------------------Thanks for Visiting---------------------------------------------" + ConsoleColors.RESET);
-		System.exit(0);
+		System.exit(1);
 	}
 	else {
 		System.out.println("please select from 1 to 3 only");
