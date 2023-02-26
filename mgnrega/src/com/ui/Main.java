@@ -199,7 +199,7 @@ public static void home() {
 				
 			}
 			else if(choice1==4) {
-				System.out.println(ConsoleColors.RED_BOLD+"enter projid");
+				System.out.println(ConsoleColors.RED_BOLD+"enter empid");
 				int id=sc.nextInt();
 				List<Employee>list=gp.viewTotalDaysandWages(id);
 				list.forEach(System.out::println);
