@@ -75,7 +75,7 @@ public static void home() {
 					String date=sc.next();
 					System.out.println(ConsoleColors.BLUE_BOLD+"enter duration"+ConsoleColors.RESET);
 					int duration=sc.nextInt();
-					System.out.println(bd.addProject(new ProjectImpl(id,name,desc,LocalDate.parse(date),duration)));
+					System.out.println(ConsoleColors.BLUE_BOLD+bd.addProject(new ProjectImpl(id,name,desc,LocalDate.parse(date),duration))+ConsoleColors.RESET);
 					
 				}
 				else if(choice==2) {
@@ -101,7 +101,7 @@ public static void home() {
 					System.out.println("enter prid");
 					int prid=sc.nextInt();
 					
-					System.out.println(bd.addGPM(new GPMImpl(id,name,email,password,location,mobilno,prid)));
+					System.out.println(ConsoleColors.RED_BOLD+bd.addGPM(new GPMImpl(id,name,email,password,location,mobilno,prid))+ConsoleColors.RESET);
 							
 				}
 				else if(choice==4) {
@@ -116,7 +116,7 @@ public static void home() {
 					System.out.println(ConsoleColors.RED_BOLD+"enter gpmid"+ConsoleColors.RESET);
 					int gpmid=sc.nextInt();
 					
-					System.out.println(bd.assignProjToGpm(projid, gpmid));
+					System.out.println(ConsoleColors.RED_BOLD+bd.assignProjToGpm(projid, gpmid)+ConsoleColors.RESET);
 				}
 				else if(choice==6) {
 					System.out.println(ConsoleColors.RED_BOLD+"enter pname");
@@ -126,7 +126,7 @@ public static void home() {
 					System.out.println(ConsoleColors.RESET);
 				}
 				else {
-					System.out.println("wrong selection please try again");
+					System.out.println(ConsoleColors.RED_BOLD+"wrong selection please try again"+ConsoleColors.RESET);
 				}
 				
 		}while(choice!=0);
@@ -140,7 +140,7 @@ public static void home() {
 		}
 		else {
 			System.out.println(ConsoleColors.GREEN_ITALIC+"invalid username and password"+ConsoleColors.RESET);
-			System.out.println("Try again");
+			System.out.println(ConsoleColors.RED_BOLD+"Try again"+ConsoleColors.RESET);
 			home();
 		}
 		
@@ -181,7 +181,7 @@ public static void home() {
 				System.out.println(ConsoleColors.BLACK_BOLD+"enter pid"+ConsoleColors.RESET);
 				int pid=sc.nextInt();
 				
-				System.out.println(gp.addEmployee(new EmployeeImpl(id,name,age,location,wages,mobilno,days,pid)));
+				System.out.println(ConsoleColors.GREEN_BOLD+gp.addEmployee(new EmployeeImpl(id,name,age,location,wages,mobilno,days,pid))+ConsoleColors.RESET);
 			}
 			else if(choice1==2) {
 				System.out.println(ConsoleColors.BLUE_BOLD);
@@ -195,7 +195,7 @@ public static void home() {
 				System.out.println(ConsoleColors.BLUE_ITALIC+"enter projid"+ConsoleColors.RESET);
 				int projid=sc.nextInt();
 				
-				System.out.println(gp.assignEmpToProj(empid, projid));
+				System.out.println(ConsoleColors.GREEN_BOLD+gp.assignEmpToProj(empid, projid)+ConsoleColors.RESET);
 				
 			}
 			else if(choice1==4) {
@@ -217,7 +217,7 @@ public static void home() {
 
 			}
 			else {
-				System.out.println("wrong selection please try again");
+				System.out.println(ConsoleColors.RED_BOLD+"wrong selection please try again"+ConsoleColors.RESET);
 			}
 			
 				
@@ -231,7 +231,7 @@ public static void home() {
 		}
 		else {
 			System.out.println(ConsoleColors.GREEN_ITALIC+"invalid email and password"+ConsoleColors.RESET);
-			System.out.println("Try again");
+			System.out.println(ConsoleColors.RED_BOLD+"Try again"+ConsoleColors.RESET);
 			home();
 		}
 		
@@ -242,7 +242,7 @@ public static void home() {
 		System.exit(1);
 	}
 	else {
-		System.out.println("please select from 1 to 3 only");
+		System.out.println(ConsoleColors.RED_BOLD+"please select from 1 to 3 only"+ConsoleColors.RESET);
 		home();
 	}
 }
