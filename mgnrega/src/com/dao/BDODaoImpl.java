@@ -69,14 +69,15 @@ public class BDODaoImpl implements BDODao {
 			emp.setPassword(resultSet.getString("password"));
 			emp.setLocation(resultSet.getString("location"));
 			emp.setMobileno(resultSet.getString("mobilno"));
-//			emp.setPrid(resultSet.getInt("prid"));
+			emp.setPrid(resultSet.getInt("prid"));;
 			
 		list.add(emp);
 		}
 		return list;
 	}
-public String loginBDO(String email,String password) {
-	String mes="invalid username or password";
+public boolean loginBDO(String email,String password) {
+	//String mes="invalid username or password";
+	boolean flag=false;
 	Connection con=null;
 	try {
 		con=DBUtils.connectToDatabase();
@@ -91,7 +92,8 @@ public String loginBDO(String email,String password) {
 //			throw new SQLException();
 //		}
 		if(resultSet.next()) {
-			mes="welcome"+" "+resultSet.getString("username");
+			//mes="welcome"+" "+resultSet.getString("username");
+			flag=true;
 		}
 		
 		
@@ -108,7 +110,7 @@ public String loginBDO(String email,String password) {
 		}
 	}
 	// TODO Auto-generated method stub
-	return mes;
+	return flag;
 }
 public String addProject(Project proj) {
 	String message="Employee insertion failed";
@@ -278,7 +280,8 @@ public String assignProjToGpm(int projid,int gpmid) {
 		//prepare the query
 		
 		String SELECT_QUERY = "update gpm set prid=? where gpmid=?";
-		
+		String str1="insert into gpmproj values(?,?)";
+		//String str1="insert into eproj values(?,?)";
 		//get the prepared statement object
 		PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
 		ps.setInt(1, projid);
@@ -315,10 +318,10 @@ public List<Employee> getAllEmployee(String pname) {
 		//prepare the query
 		
 		String SELECT_QUERY = "select e.empid ,e.ename,e.days,e.wages,p.name from employee e inner join project p on e.pid=p.projid where p.name=?";
-			//String str1="select e.empid,e.ename, e.days,e.wages,p.name from employee e inner join eproj ep on e.empid=ep.emp_id inner join project p on p.projid=ep.p_id where p.name=?";
+			String str1="select e.empid,e.ename,e.age,e.location, e.days,e.wages,e.mobilno,e.pid,p.name from employee e inner join eproj ep on e.empid=ep.emp_id inner join project p on p.projid=ep.p_id where p.name=?";
 		
 		//get the prepared statement object
-		PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
+		PreparedStatement ps = connection.prepareStatement(str1);
 		ps.setString(1, pname);
         ResultSet resultSet=ps.executeQuery();
         
@@ -333,11 +336,15 @@ public List<Employee> getAllEmployee(String pname) {
 
 			emp.setEmpid(resultSet.getInt("empid"));
 			emp.setEname(resultSet.getString("ename"));
-//			emp.setAge(rs.getInt("age"));
-//			emp.setLocation(rs.getString("location"));
+			emp.setAge(resultSet.getInt("age"));
+			emp.setLocation(resultSet.getString("location"));
 			emp.setDays(resultSet.getInt("days"));
 			emp.setWages(resultSet.getInt("wages"));
-//			emp.setMobilno(rs.getString("mobilno"));
+			emp.setPid(resultSet.getInt("pid"));
+			emp.setMobilno(resultSet.getString("mobilno"));
+			
+	
+			
 			
 			
 			

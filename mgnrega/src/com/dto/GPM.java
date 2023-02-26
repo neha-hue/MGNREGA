@@ -13,6 +13,6 @@ public interface GPM {
 	public void setLocation(String location);
 	public String getMobileno();
 	public void setMobileno(String mobileno);
-//	public int getPrid();
-//	public void setPrid(int prid);
+	public int getPrid();
+	public void setPrid(int prid);
 }

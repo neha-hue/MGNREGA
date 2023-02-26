@@ -7,11 +7,11 @@ private String email;
 private String password;
 private String location;
 private String mobileno;
-//private int prid;
+private int prid;
 public GPMImpl() {
 	
 }
-public GPMImpl(int gpmid, String name, String email, String password, String location, String mobileno) {
+public GPMImpl(int gpmid, String name, String email, String password, String location, String mobileno,int prid) {
 	super();
 	this.gpmid = gpmid;
 	this.name = name;
@@ -19,7 +19,7 @@ public GPMImpl(int gpmid, String name, String email, String password, String loc
 	this.password = password;
 	this.location = location;
 	this.mobileno = mobileno;
-//	this.prid=prid;
+	this.prid=prid;
 }
 public int getGpmid() {
 	return gpmid;
@@ -57,18 +57,20 @@ public String getMobileno() {
 public void setMobileno(String mobileno) {
 	this.mobileno = mobileno;
 }
+public int getPrid() {
+	return prid;
+}
+public void setPrid(int prid) {
+	this.prid = prid;
+}
 @Override
 public String toString() {
 	return "GPMImpl [gpmid=" + gpmid + ", name=" + name + ", email=" + email + ", password=" + password + ", location="
-			+ location + ", mobileno=" + mobileno + "]";
+			+ location + ", mobileno=" + mobileno + ", prid=" + prid + "]";
 }
 
-//public int getPrid() {
-//	return prid;
-//}
-//public void setPrid(int prid) {
-//	this.prid = prid;
-//}
+
+
 
 
 

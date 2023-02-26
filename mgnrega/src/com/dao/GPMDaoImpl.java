@@ -10,7 +10,7 @@ import java.util.List;
 import com.dto.EmpProject;
 import com.dto.Employee;
 import com.dto.EmployeeImpl;
-import com.dto.Project;
+import com.dto.Eproj;
 
 
 public class GPMDaoImpl implements GPMDao {
@@ -30,7 +30,7 @@ public class GPMDaoImpl implements GPMDao {
 			emp.setWages(resultSet.getInt("wages"));
 			emp.setMobilno(resultSet.getString("mobilno"));
 			emp.setDays(resultSet.getInt("days"));
-//			emp.setPid(resultSet.getInt("pid"));
+			emp.setPid(resultSet.getInt("pid"));
 		list.add(emp);
 		}
 		return list;
@@ -52,7 +52,21 @@ public class GPMDaoImpl implements GPMDao {
 		return list;
 	}
 	
+	private List<Eproj> getEprojListFromResultSet(ResultSet rs) throws SQLException{
+		List<Eproj>list=new ArrayList<>();
+		while(rs.next()) {
+			Eproj ep=new Eproj();
+			ep.setEmp_id(rs.getInt("emp_id"));
+			ep.setP_id(rs.getInt("p_id"));
+			list.add(ep);
+		}
+		return list;
+	}
 	
+	
+	/**
+	 *
+	 */
 	public boolean loginGPM(String email,String password) {
 		boolean mes=false;
 		Connection con=null;
@@ -106,6 +120,7 @@ public class GPMDaoImpl implements GPMDao {
 				ps.setString(4,emp.getLocation());
 				ps.setInt(5, emp.getWages());
 				ps.setString(6, emp.getMobilno());
+//				ps.setInt(7, emp.getPid());		
 				ps.setInt(7, emp.getDays());
 				
 
@@ -169,6 +184,45 @@ public class GPMDaoImpl implements GPMDao {
 		return list;
 	}
 	
+//	-----------------------Eproj---------------------------
+public List<Eproj> getAllEproj()  {
+		
+		Connection connection = null;
+
+		List<Eproj> list = null;
+		try {
+			//connect to database
+			connection = DBUtils.connectToDatabase();
+			//prepare the query
+			String SELECT_QUERY = "select * from eproj";
+			
+			//get the prepared statement object
+			PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
+			
+			//execute query
+			ResultSet resultSet = ps.executeQuery();
+			
+			//check if result set is empty
+			if(isResultSetEmpty(resultSet)) {
+				throw new SQLException();
+			}
+			
+			list = getEprojListFromResultSet(resultSet);
+		}catch(SQLException sqlEx) {
+			//code to log the error in the file
+			sqlEx.printStackTrace();
+		}finally {
+			try {
+				//close the exception
+				DBUtils.closeConnection(connection);			
+			}catch(SQLException sqlEX) {
+				sqlEX.printStackTrace();
+			}
+		}
+		// TODO Auto-generated method stub
+		return list;
+	}
+	
 	
 	
 	
@@ -183,7 +237,7 @@ public class GPMDaoImpl implements GPMDao {
 			//prepare the query
 			
 			String SELECT_QUERY = "update employee set pid=? where empid=?";
-			
+			String str1="insert into eproj values(?,?)";
 			//get the prepared statement object
 			PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
 			ps.setInt(1, projid);
@@ -219,10 +273,10 @@ public class GPMDaoImpl implements GPMDao {
 			//prepare the query
 			
 			String SELECT_QUERY = "select e.days,e.days*e.wages TotalWages from employee e inner join project p on p.projid=e.pid where p.projid=?";
-				//String str1="select e.days,e.days*e.wages totalwages from employee e inner join eproj ep on e.empid=ep.emp_id inner join project p on p.projid=ep.p_id where p.projid=?";
+			String str1="select e.wages,e.days,e.days*e.wages totalwages,e.empid,e.ename,e.age,e.location,e.mobilno,e.pid from employee e inner join eproj ep on e.empid=ep.emp_id inner join project p on p.projid=ep.p_id where e.empid=?";
 			
 			//get the prepared statement object
-			PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
+			PreparedStatement ps = connection.prepareStatement(str1);
 			ps.setInt(1, empid);
             ResultSet resultSet=ps.executeQuery();
             
@@ -235,16 +289,17 @@ public class GPMDaoImpl implements GPMDao {
 				
 				
 
-//				emp.setEmpid(resultSet.getInt("empid"));
-//				emp.setEname(resultSet.getString("ename"));
-//				emp.setAge(rs.getInt("age"));
-//				emp.setLocation(rs.getString("location"));
-				int wageess=resultSet.getInt("TotalWages");
-//				emp.setMobilno(rs.getString("mobilno"));
-				int days=resultSet.getInt("days");
-//				emp.setProjid(resultSet.getInt("projid"));
-//				emp.setName(resultSet.getString("name"));
-				Employee  emp=new EmployeeImpl(wageess,days);
+				Employee  emp=new EmployeeImpl();
+				
+
+				emp.setEmpid(resultSet.getInt("empid"));
+				emp.setEname(resultSet.getString("ename"));
+				emp.setAge(resultSet.getInt("age"));
+				emp.setLocation(resultSet.getString("location"));
+				emp.setDays(resultSet.getInt("days"));
+				emp.setWages(resultSet.getInt("wages"));
+				emp.setPid(resultSet.getInt("pid"));
+				emp.setMobilno(resultSet.getString("mobilno"));
 				
 				list.add(emp);
 			}
