@@ -244,7 +244,7 @@ public List<Eproj> getAllEproj()  {
 			ps.setInt(2, empid);
 			
 			if(ps.executeUpdate()>0) {
-				msg="project assign sucessfully";
+				msg="project assign employee sucessfully";
 			}
 		}catch(SQLException sqlEx) {
 			//code to log the error in the file
