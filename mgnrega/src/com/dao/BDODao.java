@@ -15,11 +15,12 @@ public interface BDODao  {
 
 	public List<Project> getAllProject();
 	public String addGPM(GPM gpm);
+	public String addEproj(Eproj eproj);
 
 
 	public List<GPM> getAllGPM() ;
 	public String assignProjToGpm(int projid,int gpmid);
-	public List<Employee> getAllEmployee(String pname);
+	public List<Employee> getAllEmployee(int empid);
 	
 	
 	

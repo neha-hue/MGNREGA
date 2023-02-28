@@ -120,7 +120,7 @@ public class GPMDaoImpl implements GPMDao {
 				ps.setString(4,emp.getLocation());
 				ps.setInt(5, emp.getWages());
 				ps.setString(6, emp.getMobilno());
-//				ps.setInt(7, emp.getPid());		
+				ps.setInt(7, emp.getPid());		
 				ps.setInt(7, emp.getDays());
 				
 
@@ -272,11 +272,11 @@ public List<Eproj> getAllEproj()  {
 			connection = DBUtils.connectToDatabase();
 			//prepare the query
 			
-			String SELECT_QUERY = "select e.days,e.days*e.wages TotalWages from employee e inner join project p on p.projid=e.pid where p.projid=?";
-			String str1="select e.wages,e.days,e.days*e.wages totalwages,e.empid,e.ename,e.age,e.location,e.mobilno,e.pid from employee e inner join eproj ep on e.empid=ep.emp_id inner join project p on p.projid=ep.p_id where e.empid=?";
+			String SELECT_QUERY = "select e.wages,e.days,e.days*e.wages totalwages,e.empid,e.ename,e.age,e.location,e.mobilno,e.pid from employee e inner join project p on p.projid=e.pid where e.empid=?";
+			//String str1="select e.wages,e.days,e.days*e.wages totalwages,e.empid,e.ename,e.age,e.location,e.mobilno,e.pid from employee e inner join eproj ep on e.empid=ep.emp_id inner join project p on p.projid=ep.p_id where e.empid=?";
 			
 			//get the prepared statement object
-			PreparedStatement ps = connection.prepareStatement(str1);
+			PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
 			ps.setInt(1, empid);
             ResultSet resultSet=ps.executeQuery();
             
@@ -297,7 +297,7 @@ public List<Eproj> getAllEproj()  {
 				emp.setAge(resultSet.getInt("age"));
 				emp.setLocation(resultSet.getString("location"));
 				emp.setDays(resultSet.getInt("days"));
-				emp.setWages(resultSet.getInt("wages"));
+				emp.setWages(resultSet.getInt("totalwages"));
 				emp.setPid(resultSet.getInt("pid"));
 				emp.setMobilno(resultSet.getString("mobilno"));
 				
