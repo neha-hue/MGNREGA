@@ -11,6 +11,7 @@ import java.util.List;
 import com.dto.EmpProject;
 import com.dto.Employee;
 import com.dto.EmployeeImpl;
+import com.dto.Eproj;
 import com.dto.GPM;
 import com.dto.GPMImpl;
 import com.dto.Project;
@@ -229,7 +230,45 @@ public String addGPM(GPM gpm) {
 		
 		return message;
 }
+/////////-------------------add eproj----------------------------
+public String addEproj(Eproj eproj) {
+	String message="eproj insertion failed";
+    Connection con=null;
 
+
+		try {
+
+			con=DBUtils.connectToDatabase();
+
+			
+			PreparedStatement ps=con.prepareStatement("insert into eproj values(?,?)");
+			ps.setInt(1, eproj.getEmp_id());
+			ps.setInt(2, eproj.getP_id());
+//			ps.setInt(7, gpm.getPrid());
+
+			
+			
+			if(ps.executeUpdate()>0) {
+				message="eproj inserted succesfully";
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				
+				DBUtils.closeConnection(con);;				
+			}catch(SQLException sqlEX) {
+				sqlEX.printStackTrace();
+			}
+		}
+		
+		return message;
+}
+
+//-----------------------------------------------------------------
 
 public List<GPM> getAllGPM()  {
 	
@@ -306,7 +345,7 @@ public String assignProjToGpm(int projid,int gpmid) {
 }
 
 //select mp.projName, me.empName,me.empAddress,me.empMobile,me.empWages  from mgnregaEmp me inner join mgnregaProject mp inner join mgnregaEmpProject mep on mep.projId = mp.projId and mep.empId = me.empId where mp.projName = ?"
-public List<Employee> getAllEmployee(String pname) {
+public List<Employee> getAllEmployee(int empid) {
 	Connection connection = null;
 //	Employee emp=null;
 //	 List<EmpProject> list=null;
@@ -317,12 +356,12 @@ public List<Employee> getAllEmployee(String pname) {
 		connection = DBUtils.connectToDatabase();
 		//prepare the query
 		
-		//String SELECT_QUERY = "select e.empid ,e.ename,e.days,e.wages,p.name from employee e inner join project p on e.pid=p.projid where p.name=?";
-			String str1="select e.empid,e.ename,e.age,e.location, e.days,e.wages,e.mobilno,e.pid,p.name from employee e inner join eproj ep on e.empid=ep.emp_id inner join project p on p.projid=ep.p_id where p.name=?";
+		String SELECT_QUERY = "select e.empid ,e.ename,e.age,e.location,e.days,e.wages,e.mobilno,e.pid,p.name from employee e inner join project p on e.pid=p.projid where e.empid=?";
+			//String str1="select e.empid,e.ename,e.age,e.location, e.days,e.wages,e.mobilno,e.pid,p.name from employee e inner join eproj ep on e.empid=ep.emp_id inner join project p on p.projid=ep.p_id where e.empid=?";
 		
 		//get the prepared statement object
-		PreparedStatement ps = connection.prepareStatement(str1);
-		ps.setString(1, pname);
+		PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
+		ps.setInt(1, empid);
         ResultSet resultSet=ps.executeQuery();
         
 		
