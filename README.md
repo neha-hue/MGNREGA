@@ -19,7 +19,7 @@ GPM can only assingn only those project which are assign to them by BDO.<br/>
 GPM can only assingn project to Employee.<br/>
 
 <br/>
-<h1>Click here to watch presentation video<a href="https://drive.google.com/drive/folders/1goR-namqIyvzPJDyHdRgEKMNwRL9n7mx">Link</a></h1>
+<h1>Click here to watch presentation video<a href="https://drive.google.com/drive/folders/1goR-namqIyvzPJDyHdRgEKMNwRL9n7mx" target=_blank>Link</a></h1>
 Used Tech stacks and Tools<br/>
 Java<br/>
 MySQL<br/>
