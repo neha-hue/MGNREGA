@@ -13,3 +13,8 @@ BDO can assign project to GPM amd GPM can assign to Employee.
 GPM can see the list of Employee and Amount receivable till date according to daily wage.
 GPM can only assingn only those project which are assign to them by BDO.
 GPM can only assingn project to Employee.
+Used Tech stacks and Tools
+Java
+MySQL
+Git & GitHub
+JDBC
