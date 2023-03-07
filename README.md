@@ -6,6 +6,7 @@ b. Gram Panchayat member
 
 A project is created by BDO,which is assigned to corresponding Gram panchayat Members. Gram Panchayat member has acccess to assign to Employees to Complete the Project.<br/>
 
+![Flow Chart1](https://user-images.githubusercontent.com/80202600/223318909-240455f4-8989-4811-9f96-4d378f7b7667.jpg)
 
 
 Features<br/>
