@@ -5,6 +5,9 @@ a. BDO (Block Development Officer)
 b. Gram Panchayat member
 
 A project is created by BDO,which is assigned to corresponding Gram panchayat Members. Gram Panchayat member has acccess to assign to Employees to Complete the Project.
+
+
+
 Features
 BDO and GPM can login and logout.
 BDO can create Project and GPM and provide their detail.
@@ -13,8 +16,11 @@ BDO can assign project to GPM amd GPM can assign to Employee.
 GPM can see the list of Employee and Amount receivable till date according to daily wage.
 GPM can only assingn only those project which are assign to them by BDO.
 GPM can only assingn project to Employee.
-Used Tech stacks and Tools
-Java
-MySQL
-Git & GitHub
-JDBC
+
+<br/>
+
+Used Tech stacks and Tools<br/>
+Java<br/>
+MySQL<br/>
+Git & GitHub<br/>
+JDBC<br/>
