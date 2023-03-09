@@ -13,24 +13,33 @@
 
 <h1>Features</h1><br/>
 <h2>BDO and GPM can login and logout.<br/></h2>
-<h2>BDO can create Project and GPM and provide their detail.</h2><br/>
-<h2>BDO can see the List of Project, GPM amd Employee's along with all the detail.</h2><br/>
-<h2>BDO can assign project to GPM amd GPM can assign to Employee.</h2><br/>
-<h2>GPM can see the list of Employee and Amount receivable till date according to daily wage.</h2><br/>
-<h2>GPM can only assingn only those project which are assign to them by BDO.</h2><br/>
-<h2>GPM can only assingn project to Employee.</h2><br/>
+<h2>BDO can create Project and GPM and provide their detail.</h2>
+<h2>BDO can see the List of Project, GPM amd Employee's along with all the detail.</h2>
+<h2>BDO can assign project to GPM amd GPM can assign to Employee.</h2>
+<h2>GPM can see the list of Employee and Amount receivable till date according to daily wage.</h2>
+<h2>GPM can only assingn only those project which are assign to them by BDO.</h2>
+<h2>GPM can only assingn project to Employee.</h2>
 
 <br/>
-<h1>Click here to watch presentation video<a href="https://drive.google.com/drive/folders/1goR-namqIyvzPJDyHdRgEKMNwRL9n7mx" target=_blank>Link</a></h1>
+<h1>Click here to watch presentation video<a href="https://drive.google.com/drive/folders/1goR-namqIyvzPJDyHdRgEKMNwRL9n7mx" target=_blank>Link</a></h1><br/>
 <h1>Used Tech stacks and Tools</h1><br/>
 
-<h2>Java</h2><br/>
-<h2>MySQL</h2><br/>
-<h2>Git & GitHub</h2><br/>
-<h2>JDBC</h2<br/>
-
+<h2>Java</h2>
+<h2>MySQL</h2>
+<h2>Git & GitHub</h2>
+<h2>JDBC</h2>
+  <br/><br/><h1>Flow Chart</h1>
 
 ![flow (1)](https://user-images.githubusercontent.com/80202600/223991565-e6efdd3f-1b0c-4169-8f9c-92c917c2a7a4.jpg)
+  
+   <br/><br/><h1>Entity RelationShip Diagram (ER)</h1>
 
 ![gitdsd (2)](https://user-images.githubusercontent.com/80202600/223966299-9e8b5712-09fb-47d6-905e-da2f862e5543.jpg)
 
+<br/>
+<br/>
+<h1>FeedBack</h1>
+<h2>Valuable Feedback will be appreciated</h2>
+<h2>You can reachout to me via this medium</h2>
+<h2><a href="https://www.linkedin.com/in/neha-jaiswal-408583201" target=_blank>LinkedIn</a></h2>
+<h2><a href="https://nehajaiswals.github.io/" target=_blank>Porfolio</a></h2>
