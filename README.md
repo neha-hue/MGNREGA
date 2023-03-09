@@ -27,6 +27,10 @@ Java<br/>
 MySQL<br/>
 Git & GitHub<br/>
 JDBC<br/>
-
+<br/>
+<h1>Flow Chart</h1>
+![flow (1)](https://user-images.githubusercontent.com/80202600/223991565-e6efdd3f-1b0c-4169-8f9c-92c917c2a7a4.jpg)
+<br/>
+<h1>Entity Relationship(ER) Diagram
 ![gitdsd (2)](https://user-images.githubusercontent.com/80202600/223966299-9e8b5712-09fb-47d6-905e-da2f862e5543.jpg)
 
