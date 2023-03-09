@@ -1,4 +1,6 @@
 # MGNREGA
+![MGNREGA_Logo](https://user-images.githubusercontent.com/80202600/223967244-894f4212-13c0-48de-887e-cb0f15ebbaa7.jpg)
+
 The Mahatma Gandhi National Rural Employment Gurantee Act(MGNREGA) is an Indian Law which gives gurantee rural areas by providing at least 100 days of guranteed wage employment .
 a. BDO (Block Development Officer)
 
