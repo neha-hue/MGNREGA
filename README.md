@@ -26,65 +26,65 @@ MySQL<br/>
 Git & GitHub<br/>
 JDBC<br/>
 
-
+<br/>
 mysql> desc bdo;
-
-| Field    | Type        | Null | Key | Default | Extra |
+<br/>
+| Field    | Type        | Null | Key | Default | Extra | <br/>
 |:-----:
-| id       | int         | NO   | PRI | NULL    |       |
-| username | varchar(20) | NO   |     | NULL    |       |
-| password | varchar(20) | YES  |     | NULL    |       |
-| location | varchar(20) | YES  |     | NULL    |       |
-| email    | varchar(20) | YES  |     | NULL    |       |
-
+| id       | int         | NO   | PRI | NULL    |       | <br/>
+| username | varchar(20) | NO   |     | NULL    |       | <br/>
+| password | varchar(20) | YES  |     | NULL    |       | <br/>
+| location | varchar(20) | YES  |     | NULL    |       | <br/>
+| email    | varchar(20) | YES  |     | NULL    |       | <br/>
+<br/>
 5 rows in set (0.07 sec)
-
+<br/>
 mysql> desc employee;
-
-| Field    | Type        | Null | Key | Default | Extra |
+<br/>
+| Field    | Type        | Null | Key | Default | Extra |<br/>
 | :----:   |:----------:
-| empid    | int         | NO   | PRI | NULL    |       |
-| ename    | varchar(20) | YES  |     | NULL    |       |
-| age      | int         | YES  |     | NULL    |       |
-| location | varchar(20) | YES  |     | NULL    |       |
-| wages    | int         | YES  |     | NULL    |       |
-| mobilno  | varchar(20) | YES  |     | NULL    |       |
-| pid      | int         | YES  | MUL | NULL    |       |
-| days     | int         | YES  |     | NULL    |       |
-
+| empid    | int         | NO   | PRI | NULL    |       |<br/>
+| ename    | varchar(20) | YES  |     | NULL    |       |<br/>
+| age      | int         | YES  |     | NULL    |       |<br/>
+| location | varchar(20) | YES  |     | NULL    |       |<br/>
+| wages    | int         | YES  |     | NULL    |       |<br/>
+| mobilno  | varchar(20) | YES  |     | NULL    |       |<br/>
+| pid      | int         | YES  | MUL | NULL    |       |<br/>
+| days     | int         | YES  |     | NULL    |       |<br/>
+<br/>
 8 rows in set (0.01 sec)
-
+<br/>
 mysql> desc eproj;
+<br/>
+| Field  | Type | Null | Key | Default | Extra |<br/>
 
-| Field  | Type | Null | Key | Default | Extra |
-
-| emp_id | int  | YES  | MUL | NULL    |       |
-| p_id   | int  | YES  | MUL | NULL    |       |
-
+| emp_id | int  | YES  | MUL | NULL    |       |<br/>
+| p_id   | int  | YES  | MUL | NULL    |       |<br/>
+<br/>
 2 rows in set (0.01 sec)
-
+<br/>
 mysql> desc gpm;
+<br/>
+| Field    | Type        | Null | Key | Default | Extra |<br/>
 
-| Field    | Type        | Null | Key | Default | Extra |
-
-| gpmid    | int         | NO   | PRI | NULL    |       |
-| name     | varchar(20) | YES  |     | NULL    |       |
-| email    | varchar(20) | YES  |     | NULL    |       |
-| password | varchar(20) | YES  |     | NULL    |       |
-| location | varchar(20) | YES  |     | NULL    |       |
-| mobilno  | varchar(20) | YES  |     | NULL    |       |
-| prid     | int         | YES  | MUL | NULL    |       |
-
+| gpmid    | int         | NO   | PRI | NULL    |       |<br/>
+| name     | varchar(20) | YES  |     | NULL    |       |<br/>
+| email    | varchar(20) | YES  |     | NULL    |       |<br/>
+| password | varchar(20) | YES  |     | NULL    |       |<br/>
+| location | varchar(20) | YES  |     | NULL    |       |<br/>
+| mobilno  | varchar(20) | YES  |     | NULL    |       |<br/><br/>
+| prid     | int         | YES  | MUL | NULL    |       |<br/>
+<br/>
 7 rows in set (0.01 sec)
-
+<br/>
 mysql> desc project;
+<br/>
+| Field    | Type        | Null | Key | Default | Extra |<br/>
 
-| Field    | Type        | Null | Key | Default | Extra |
-
-| projid   | int         | NO   | PRI | NULL    |       |
-| name     | varchar(20) | YES  |     | NULL    |       |
-| projdesc | varchar(20) | YES  |     | NULL    |       |
-| date     | date        | YES  |     | NULL    |       |
-| duration | int         | YES  |     | NULL    |       |
+| projid   | int         | NO   | PRI | NULL    |       |<br/>
+| name     | varchar(20) | YES  |     | NULL    |       |<br/>
+| projdesc | varchar(20) | YES  |     | NULL    |       |<br/>
+| date     | date        | YES  |     | NULL    |       |<br/>
+| duration | int         | YES  |     | NULL    |       |<br/>
 
 5 rows in set (0.01 sec)
